@@ -1,0 +1,731 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --main-color: #e84242;
+    --black-color: #121212;
+    --border: 0.1rem solid rgba(255, 255, 255, .4);
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2 ease-out;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+body {
+    background-color: var(--main-color);
+}
+
+html {
+    font-size: 62.5%;
+    /* 1 rem = 10px haline geldi*/
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    width: .8rem;
+    background-color: white;
+}
+
+html::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgb(98, 95, 95);
+}
+
+header {
+    background-color: white;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    margin: 2rem 7%;
+    border-radius: 6rem;
+    position: sticky;
+    top: 0;
+}
+
+.navbar a {
+    margin: 0 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--black-color);
+    border-bottom: .1rem solid transparent;
+    transition: all .4s ease-in-out;
+}
+
+
+.logo img {
+    height: 9rem;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: all .5s ease-in-out;
+}
+
+.navbar .active,
+.navbar a:hover {
+    border-color: var(--main-color);
+    padding-bottom: .3rem;
+}
+
+header .buttons {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+header .buttons button {
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 1.5rem;
+    background-color: transparent;
+    background-position: center;
+}
+
+/*                          search form  */
+header .search-form {
+    position: absolute;
+    top: 115%;
+    right: 7%;
+    transform: scaleY(0);
+    transition: .3s;
+    box-shadow: 0px 20px 14rem 0px rgb(0 0 0 / 75%);
+    transition: all .5s ease-in-out;
+}
+
+header .search-form.active {
+    transform: scaleY(1);
+}
+
+header .search-form i {
+    position: absolute;
+    font-size: 2rem;
+    right: 1rem;
+    top: 1rem;
+}
+
+/*                                  cart items */
+header .cart-items-container {
+    position: absolute;
+    top: 95%;
+    right: -100%;
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+    background-color: #ccc;
+    padding: 1rem;
+    overflow-y: auto;
+    max-height: 100vh;
+    border-radius: .6rem;
+    transition: all .5s ease-in-out;
+}
+
+header .cart-items-container.active {
+    right: 3rem;
+}
+
+.cart-items-container .cart-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 25rem;
+    background-color: white;
+    border-radius: 5rem;
+    gap: 1rem;
+}
+
+.cart-item:hover {
+    box-shadow: 0px 0px 10px 0px black;
+}
+
+.cart-items-container .cart-item img {
+    height: 5rem;
+}
+
+.cart-item .content h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.cart-item .content .price {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.cart-item .fa-times {
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 600;
+    right: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.cart-item .fa-times:hover {
+    background-color: rgb(206, 202, 202);
+
+}
+
+#menu-btn {
+    display: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 2rem 3.75rem;
+    border-radius: 5rem;
+    font-size: 1.6rem;
+    color: white;
+    background-color: var(--black-color);
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    opacity: .9;
+}
+
+/* HOME START */
+.home {
+    min-height: 100vh;
+    background: url(images/home.jpg) no-repeat;
+    background-size: cover;
+    margin-top: -15rem;
+    padding: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+.home .content {
+    max-width: 60rem;
+}
+
+.home .content h3 {
+    font-size: 6rem;
+    color: white;
+    font-weight: bold;
+}
+
+.home .content p {
+    color: #ccc;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    padding: 2rem 0;
+}
+
+/* HOME END */
+
+section {
+    padding: 0rem 7% 5rem;
+}
+
+section h1 {
+    color: white;
+    font-size: 4rem;
+    font-weight: 500;
+    border-bottom: 1px solid white;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+section h1 span {
+    color: black;
+    font-size: 4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.products .box-container,
+.blog .box-container,
+.review .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 3rem;
+}
+
+.box {
+    position: relative;
+    background-color: white;
+    border-radius: 3rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 50rem;
+    overflow: hidden;
+}
+
+
+
+/* MENU START */
+.menu .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.box img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.box-head .menu-category {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.box-head h3 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.box-head .price {
+    font-size: 2rem;
+}
+
+.box-head .price span {
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    color: red;
+}
+
+/* MENU END */
+
+/* PRODUCTS START */
+.products .box-container .box.dark {
+    color: white;
+}
+
+.box.dark a {
+    color: white;
+}
+
+.products .box-container .box .box-head {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.box-head .title {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.box-head .name {
+    font-size: 3rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.products .box-container .box .image img {
+    min-width: 35rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3rem;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer .info span {
+    font-size: 2.6rem;
+    font-weight: 600;
+}
+
+.footer .info p {
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: gray;
+}
+
+.footer div button {
+    border: 2px solid var(--main-color);
+    padding: 1.2rem 2rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    font-weight: 600;
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+/* PRODUCTS END */
+
+/* ABOUT US START */
+.about .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    gap: 2rem;
+}
+
+.about .row .image {
+    flex: 1 1 45rem;
+}
+
+.about .row img {
+    width: 100%;
+    border-radius: 2rem;
+}
+
+.about .row .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: baseline;
+}
+
+.about .row .content h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+}
+
+.about .row .content p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: white;
+}
+
+/* ABOUT US END */
+
+
+/* REVİEW START */
+
+.review .box-container .box {
+    text-align: center;
+}
+
+.review .box-container .box img {
+    width: 12rem;
+}
+
+.review .box-container .box p {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.box .user {
+    border-radius: 50%;
+}
+
+.review .box-container .box h3 {
+    color: var(--main-color);
+    font-size: 2rem;
+}
+
+.review .box-container .box .stars i {
+    color: gold;
+    font-size: 1.5rem;
+}
+
+/* REVİEW END */
+
+/* CONTACT START */
+.contact .row {
+    display: flex;
+    gap: 2rem;
+    background-color: var(--black-color);
+    flex-wrap: wrap;
+}
+
+.contact .row .map {
+    flex: 1 1 45rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.contact .row form {
+    flex: 1 1 45rem;
+    width: 100%;
+    text-align: center;
+    padding: 3rem;
+}
+
+.contact .row form h3 {
+    font-size: 3rem;
+    color: white;
+    text-transform: uppercase;
+}
+
+.contact .row form .inputBox {
+    display: flex;
+    align-items: center;
+    margin: 2rem 3rem;
+    position: relative;
+    border: var(--border);
+}
+
+form .inputBox i {
+    font-size: 1.5rem;
+    position: absolute;
+    color: white;
+    margin-left: .6rem;
+}
+
+form .inputBox input {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    text-indent: 2rem;
+    text-transform: none;
+    background-color: var(--black-color);
+    color: white;
+    font-size: 1.6rem;
+}
+
+form .btn {
+    background-color: white;
+    color: var(--main-color);
+}
+
+/* CONTACT END */
+
+/* BLOG START */
+.blog-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25rem;
+    transition: .5s ease-in-out;
+}
+
+.blog-image:hover {
+    scale: 1.1;
+}
+
+.box .content .title {
+    font-size: 2.2rem;
+}
+
+.box .content div {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    font-weight: 700;
+}
+
+.box .content p {
+    font-size: 1.4rem;
+    color: gray;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* BLOG END */
+
+/* FOOTER START */
+footer {
+    background-color: var(--black-color);
+    padding: 8rem 7%;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .search {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+
+footer .share {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+footer .share a {
+    width: 5rem;
+    height: 5rem;
+    border: var(--border);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: .3s;
+}
+
+.share a:hover {
+    background-color: var(--main-color);
+}
+
+footer .share a i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.search-input {
+    height: 4rem;
+    border-radius: 2rem;
+    text-indent: 1.5rem;
+    width: 30rem;
+}
+
+.btn-primary {
+    background-color: var(--main-color);
+    padding: 1rem 2rem;
+    margin: 0;
+    text-transform: none;
+}
+
+footer .links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+footer .links a {
+    background-color: var(--main-color);
+    font-size: 1.5rem;
+    color: white;
+    padding: 3px 8px;
+    border: var(--border);
+}
+
+footer .links a:hover {
+    opacity: .7;
+}
+
+footer .links a.active {
+    background-color: var(--black-color);
+}
+
+footer .credit {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 300;
+    padding-top: 3rem;
+    text-align: center;
+}
+
+footer .credit span {
+    color: var(--main-color);
+}
+
+/* FOOTER END */
+
+/*                                      RESPONSİVE START */
+@media (max-width: 951px) {
+    html {
+        font-size: 55%;
+    }
+
+    header .logo img {
+        height: 8rem;
+    }
+
+    #menu-btn {
+        display: inline;
+    }
+
+    section {
+        padding: 3.5rem 5%;
+    }
+
+    .btn {
+        padding: 1.5rem 3rem;
+        border-radius: 5rem;
+        font-size: 1.4rem;
+    }
+
+    section h1 {
+        font-size: 3rem;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+    }
+
+    section h1 span {
+        font-size: 3rem;
+        font-weight: 600;
+    }
+
+    header .navbar.active {
+        right: 1.5rem;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 95%;
+        background-color: white;
+        width: 15rem;
+        height: fit-content;
+        box-shadow: 0px 10px 10px 0px var(--black-color);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        right: -100%;
+        padding: 1.5rem 0;
+    }
+}
+
+@media (max-width:768px) {
+    html {
+        font-size: 50%;
+    }
+
+    header .logo img {
+        height: 7rem;
+    }
+
+    section {
+        padding: 3rem 4%;
+    }
+
+    .btn {
+        padding: 1.2rem 2.5rem;
+        border-radius: 3rem;
+        font-size: 1.2rem;
+    }
+
+    section h1 {
+        font-size: 2.5rem;
+        font-weight: 400;
+        margin-bottom: 1.2rem;
+    }
+
+    section h1 span {
+        font-size: 2.5rem;
+        font-weight: 600;
+    }
+
+    header .navbar {
+        width: 14rem;
+        height: fit-content;
+        box-shadow: 0px 10px 10px 0px var(--black-color);
+        gap: 2rem;
+        right: -100%;
+    }
+}
+
+/*                                      RESPONSİVE END */
